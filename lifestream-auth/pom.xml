@@ -28,6 +28,26 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <!-- 业务接口日志组件 -->
+        <dependency>
+            <groupId>com.sunrisejay</groupId>
+            <artifactId>lifestream-spring-boot-starter-biz-operationlog</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.sunrisejay</groupId>
+            <artifactId>lifestream-common</artifactId>
+        </dependency>
+        <!-- Mybatis -->
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+        </dependency>
+
+        <!-- MySQL 驱动 -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

@@ -27,8 +27,9 @@
         <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
         <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
         <lombok.version>1.18.30</lombok.version>
-        <!-- 依赖包版本 -->
+        <jackson.version>2.16.1</jackson.version>
         <spring-boot.version>3.0.2</spring-boot.version>
+        <mysql-connector-java.version>8.0.29</mysql-connector-java.version>
         <spring-cloud-alibaba.version>2022.0.0.0</spring-cloud-alibaba.version>
         <spring-cloud.version>2022.0.0</spring-cloud.version>
     </properties>
@@ -53,7 +54,36 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <!-- 业务接口日志组件 -->
+            <dependency>
+                <groupId>com.sunrisejay</groupId>
+                <artifactId>lifestream-spring-boot-starter-biz-operationlog</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <!-- Jackson -->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <!-- Mybatis -->
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
 
+            <!-- MySQL 驱动 -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connector-java.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
             <!-- Spring Cloud 官方依赖管理 -->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
@@ -68,7 +98,11 @@
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
             </dependency>
-
+            <dependency>
+                <groupId>com.sunrisejay</groupId>
+                <artifactId>lifestream-common</artifactId>
+                <version>${revision}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
