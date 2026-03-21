@@ -24,15 +24,16 @@ public class JsonUtils {
     static {
         OBJECT_MAPPER.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         OBJECT_MAPPER.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
+        OBJECT_MAPPER.registerModules(new JavaTimeModule()); // 解决 LocalDateTime 的序列化问题
+    }
 
-        // JavaTimeModule 用于指定序列化和反序列化规则
-        JavaTimeModule javaTimeModule = new JavaTimeModule();
-
-        // 支持 LocalDateTime
-        javaTimeModule.addSerializer(LocalDateTime.class, new LocalDateTimeSerializer(DateTimeFormatter.ofPattern(DateConstants.DATE_FORMAT)));
-        javaTimeModule.addDeserializer(LocalDateTime.class, new LocalDateTimeDeserializer(DateTimeFormatter.ofPattern(DateConstants.DATE_FORMAT)));
-
-        OBJECT_MAPPER.registerModules(javaTimeModule); // 解决 LocalDateTime 的序列化问题
+    /**
+     * 初始化：统一使用 Spring Boot 个性化配置的 ObjectMapper
+     *
+     * @param objectMapper
+     */
+    public static void init(ObjectMapper objectMapper) {
+        OBJECT_MAPPER = objectMapper;
     }
 
 

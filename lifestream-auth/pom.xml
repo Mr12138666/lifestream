@@ -18,6 +18,11 @@
     <description>时光溪：认证服务（负责处理用户登录、注册、账号注销等）</description>
 
     <dependencies>
+        <!-- Druid 数据库连接池 -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-3-starter</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -32,6 +37,11 @@
         <dependency>
             <groupId>com.sunrisejay</groupId>
             <artifactId>lifestream-spring-boot-starter-biz-operationlog</artifactId>
+        </dependency>
+        <!-- Jackson 配置组件 -->
+        <dependency>
+            <groupId>com.sunrisejay</groupId>
+            <artifactId>lifestream-spring-boot-starter-jackson</artifactId>
         </dependency>
         <dependency>
             <groupId>com.sunrisejay</groupId>
@@ -52,6 +62,11 @@
 
     <build>
         <plugins>
+            <!-- 代码生成器 -->
+            <plugin>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-maven-plugin</artifactId>
+            </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>

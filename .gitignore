@@ -9,9 +9,18 @@ target/
 .idea/jarRepositories.xml
 .idea/compiler.xml
 .idea/libraries/
+.idea/dataSources/
+.idea/dataSources.local.xml
+.idea/data_source_mapping.xml
 *.iws
 *.iml
 *.ipr
+
+### 配置文件 ###
+# 生产环境配置（包含数据库密码等敏感信息）
+**/application-prod.yml
+**/application-prod.yaml
+**/application-prod.properties
 
 ### Eclipse ###
 .apt_generated

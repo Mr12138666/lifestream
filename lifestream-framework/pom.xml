@@ -18,5 +18,6 @@
 
         <module>lifestream-common</module>
         <module>lifestream-spring-boot-starter-biz-operationlog</module>
+        <module>lifestream-spring-boot-starter-jackson</module>
     </modules>
 </project>
