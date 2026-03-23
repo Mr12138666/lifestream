@@ -21,6 +21,8 @@ target/
 **/application-prod.yml
 **/application-prod.yaml
 **/application-prod.properties
+# MyBatis Generator 配置（包含数据库连接信息）
+**/generatorConfig.xml
 
 ### Eclipse ###
 .apt_generated
