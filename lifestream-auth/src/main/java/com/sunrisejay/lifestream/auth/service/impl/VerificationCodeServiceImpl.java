@@ -7,6 +7,7 @@ import com.sunrisejay.lifestream.auth.constant.RedisKeyConstants;
 import com.sunrisejay.lifestream.auth.enums.ResponseCodeEnum;
 import com.sunrisejay.lifestream.auth.model.vo.verificationcode.SendVerificationCodeReqVO;
 import com.sunrisejay.lifestream.auth.service.VerificationCodeService;
+import com.sunrisejay.lifestream.auth.sms.helper.MailHelper;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -20,6 +21,9 @@ public class VerificationCodeServiceImpl implements VerificationCodeService {
 
     @Resource
     private RedisTemplate<String, Object> redisTemplate;
+
+    @Resource
+    private MailHelper mailHelper;
 
     /**
      * 发送短信验证码
@@ -45,7 +49,7 @@ public class VerificationCodeServiceImpl implements VerificationCodeService {
         // 生成 6 位随机数字验证码
         String verificationCode = RandomUtil.randomNumbers(6);
 
-        // todo: 调用第三方短信发送服务
+        mailHelper.sendVerifyCode(mail, verificationCode);
 
         log.info("==> 邮箱: {}, 已发送验证码：【{}】", mail, verificationCode);
 
