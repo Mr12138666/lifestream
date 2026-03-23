@@ -7,7 +7,7 @@ import com.sunrisejay.lifestream.auth.constant.RedisKeyConstants;
 import com.sunrisejay.lifestream.auth.enums.ResponseCodeEnum;
 import com.sunrisejay.lifestream.auth.model.vo.verificationcode.SendVerificationCodeReqVO;
 import com.sunrisejay.lifestream.auth.service.VerificationCodeService;
-import com.sunrisejay.lifestream.auth.sms.helper.MailHelper;
+import com.sunrisejay.lifestream.auth.sms.MailHelper;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.RedisTemplate;

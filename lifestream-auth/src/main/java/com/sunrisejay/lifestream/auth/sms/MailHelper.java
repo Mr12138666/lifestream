@@ -1,7 +1,7 @@
-package com.sunrisejay.lifestream.auth.sms.helper;
+package com.sunrisejay.lifestream.auth.sms;
 
-import com.sunrisejay.lifestream.auth.sms.config.MailProperties;
-import com.sunrisejay.lifestream.auth.sms.constant.MailKeyConstants;
+import com.sunrisejay.lifestream.auth.config.MailProperties;
+import com.sunrisejay.lifestream.auth.constant.MailKeyConstants;
 import jakarta.annotation.Resource;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;

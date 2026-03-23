@@ -1,4 +1,4 @@
-package com.sunrisejay.lifestream.auth.sms.config;
+package com.sunrisejay.lifestream.auth.config;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

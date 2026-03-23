@@ -1,5 +1,6 @@
 package com.sunrisejay.lifestream.auth.model.vo.verificationcode;
 
+import com.sunrisejay.lifestream.auth.validator.MailNumber;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,6 +14,7 @@ import lombok.NoArgsConstructor;
 public class SendVerificationCodeReqVO {
 
     @NotBlank(message = "邮箱不能为空")
+    @MailNumber
     private String mail;
 
 }

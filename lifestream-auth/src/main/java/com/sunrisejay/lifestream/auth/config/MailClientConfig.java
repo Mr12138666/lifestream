@@ -1,4 +1,4 @@
-package com.sunrisejay.lifestream.auth.sms.config;
+package com.sunrisejay.lifestream.auth.config;
 
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;

@@ -1,4 +1,4 @@
-package com.sunrisejay.lifestream.auth.sms.constant;
+package com.sunrisejay.lifestream.auth.constant;
 
 /**
  * 邮件相关常量
