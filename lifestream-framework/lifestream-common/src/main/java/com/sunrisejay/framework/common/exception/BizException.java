@@ -1,6 +1,7 @@
 package com.sunrisejay.framework.common.exception;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * @description:
@@ -9,6 +10,7 @@ import lombok.Data;
  * @date: 2026/3/17 16:42
  */
 @Data
+@EqualsAndHashCode(callSuper=false)
 public class BizException extends RuntimeException{
     //异常码
     private String errorCode;

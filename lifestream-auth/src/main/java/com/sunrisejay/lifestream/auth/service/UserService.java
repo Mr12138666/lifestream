@@ -1,6 +1,7 @@
 package com.sunrisejay.lifestream.auth.service;
 
 import com.sunrisejay.framework.common.response.Response;
+import com.sunrisejay.lifestream.auth.model.vo.user.UpdatePasswordReqVO;
 import com.sunrisejay.lifestream.auth.model.vo.user.UserLoginReqVO;
 
 public interface UserService {
@@ -17,5 +18,10 @@ public interface UserService {
      * @return
      */
     Response<?> logout();
-
+    /**
+     * 修改密码
+     * @param updatePasswordReqVO
+     * @return
+     */
+    Response<?> updatePassword(UpdatePasswordReqVO updatePasswordReqVO);
 }

@@ -1,4 +1,4 @@
-package com.sunrisejay.lifestream.auth.filter;
+package com.sunrisejay.framework.biz.context.holder;
 
 import com.alibaba.ttl.TransmittableThreadLocal;
 import com.sunrisejay.framework.common.constant.GlobalConstants;
@@ -14,7 +14,11 @@ public class LoginUserContextHolder {
 
 
     public static void setUserId(Object userId){
-        LOGIN_USER_CONTEXT_THREAD_LOCAL.get().put(GlobalConstants.USER_ID,userId);
+        if(userId instanceof String){
+            LOGIN_USER_CONTEXT_THREAD_LOCAL.get().put(GlobalConstants.USER_ID, Long.parseLong((String) userId));
+        } else {
+            LOGIN_USER_CONTEXT_THREAD_LOCAL.get().put(GlobalConstants.USER_ID,userId);
+        }
     }
 
     public static Long getUserId(){

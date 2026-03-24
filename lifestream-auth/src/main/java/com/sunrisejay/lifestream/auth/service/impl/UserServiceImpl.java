@@ -3,7 +3,7 @@ package com.sunrisejay.lifestream.auth.service.impl;
 import cn.dev33.satoken.stp.SaTokenInfo;
 import cn.dev33.satoken.stp.StpUtil;
 import com.google.common.base.Preconditions;
-import com.google.common.collect.Lists;
+import com.sunrisejay.framework.biz.context.holder.LoginUserContextHolder;
 import com.sunrisejay.framework.common.exception.BizException;
 import com.sunrisejay.framework.common.response.Response;
 import com.sunrisejay.framework.common.util.JsonUtils;
@@ -19,15 +19,16 @@ import com.sunrisejay.lifestream.auth.enums.DeletedEnum;
 import com.sunrisejay.lifestream.auth.enums.LoginTypeEnum;
 import com.sunrisejay.lifestream.auth.enums.ResponseCodeEnum;
 import com.sunrisejay.lifestream.auth.enums.StatusEnum;
-import com.sunrisejay.lifestream.auth.filter.LoginUserContextHolder;
+
+import com.sunrisejay.lifestream.auth.model.vo.user.UpdatePasswordReqVO;
 import com.sunrisejay.lifestream.auth.model.vo.user.UserLoginReqVO;
 import com.sunrisejay.lifestream.auth.service.UserService;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.support.TransactionTemplate;
 
 import java.time.LocalDateTime;
@@ -49,6 +50,8 @@ public class UserServiceImpl implements UserService {
     private TransactionTemplate transactionTemplate;
     @Resource
     private RoleDOMapper roleDOMapper;
+    @Resource
+    private PasswordEncoder passwordEncoder;
 
     /**
      * 登录与注册
@@ -98,8 +101,17 @@ public class UserServiceImpl implements UserService {
                 }
                 break;
             case PASSWORD: // 密码登录
-                // todo
+                String rawPassword = userLoginReqVO.getPassword();
 
+                UserDO userDO1 = userDOMapper.selectByMail(mail);
+                if (Objects.isNull(userDO1)) {
+                    throw new BizException(ResponseCodeEnum.USER_NOT_FOUND);
+                }
+                String encodedPassword = userDO1.getPassword();
+                if (!passwordEncoder.matches(rawPassword,encodedPassword)) {
+                    throw new BizException(ResponseCodeEnum.MAIL_OR_PASSWORD_ERROR);
+                }
+                userId = userDO1.getId();
                 break;
             default:
                 break;
@@ -186,5 +198,24 @@ public class UserServiceImpl implements UserService {
                     }
                 });
     }
+    @Override
+    public Response<?> updatePassword(UpdatePasswordReqVO updatePasswordReqVO) {
+        // 新密码
+        String newPassword = updatePasswordReqVO.getNewPassword();
+        // 密码加密
+        String encodePassword = passwordEncoder.encode(newPassword);
 
+        // 获取当前请求对应的用户 ID
+        Long userId = LoginUserContextHolder.getUserId();
+
+        UserDO userDO = UserDO.builder()
+                .id(userId)
+                .password(encodePassword)
+                .updateTime(LocalDateTime.now())
+                .build();
+        // 更新密码
+        userDOMapper.updateByPrimaryKeySelective(userDO);
+
+        return Response.success();
+    }
 }

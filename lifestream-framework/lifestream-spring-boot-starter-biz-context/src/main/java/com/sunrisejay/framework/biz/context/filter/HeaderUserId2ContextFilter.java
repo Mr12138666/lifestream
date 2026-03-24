@@ -1,7 +1,9 @@
-package com.sunrisejay.lifestream.auth.filter;
+package com.sunrisejay.framework.biz.context.filter;
 
-import com.alibaba.cloud.commons.lang.StringUtils;
+
+import com.sunrisejay.framework.biz.context.holder.LoginUserContextHolder;
 import com.sunrisejay.framework.common.constant.GlobalConstants;
+import io.micrometer.common.util.StringUtils;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
