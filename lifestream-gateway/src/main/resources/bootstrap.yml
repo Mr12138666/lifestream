@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: lifestream-gateway # 应用名称
+  profiles:
+    active: prod
+  cloud:
+    nacos:
+      discovery:
+        enabled: true # 启用服务发现
+        group: DEFAULT_GROUP # 所属组
+        namespace: lifestream # 命名空间
+        server-addr: 120.53.242.78:18848,120.53.242.78:19848 # Nacos 服务器地址

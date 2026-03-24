@@ -12,3 +12,8 @@ spring:
         namespace: lifestream # 命名空间
         file-extension: yaml # 配置文件格式
         refresh-enabled: true # 是否开启动态刷新
+      discovery:
+        enabled: true
+        group: DEFAULT_GROUP
+        namespace: lifestream
+        server-addr: 120.53.242.78:18848,120.53.242.78:19848
