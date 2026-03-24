@@ -19,6 +19,7 @@ import com.sunrisejay.lifestream.auth.enums.DeletedEnum;
 import com.sunrisejay.lifestream.auth.enums.LoginTypeEnum;
 import com.sunrisejay.lifestream.auth.enums.ResponseCodeEnum;
 import com.sunrisejay.lifestream.auth.enums.StatusEnum;
+import com.sunrisejay.lifestream.auth.filter.LoginUserContextHolder;
 import com.sunrisejay.lifestream.auth.model.vo.user.UserLoginReqVO;
 import com.sunrisejay.lifestream.auth.service.UserService;
 import jakarta.annotation.Resource;
@@ -115,6 +116,22 @@ public class UserServiceImpl implements UserService {
         return Response.success(tokenInfo.tokenValue);
 
     }
+
+    /**
+     * 退出登录
+     *
+     * @return
+     */
+    @Override
+    public Response<?> logout() {
+        Long userId = LoginUserContextHolder.getUserId();
+        // 退出登录 (指定用户 ID)
+        StpUtil.logout(userId);
+
+        return Response.success();
+    }
+
+
     /**
      * 系统自动注册用户
      * @param mail
