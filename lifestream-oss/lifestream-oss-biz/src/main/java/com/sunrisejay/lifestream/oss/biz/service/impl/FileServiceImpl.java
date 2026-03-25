@@ -1,7 +1,6 @@
 package com.sunrisejay.lifestream.oss.biz.service.impl;
 
 import com.sunrisejay.framework.common.response.Response;
-import com.sunrisejay.lifestream.oss.biz.config.AliyunOSSProperties;
 import com.sunrisejay.lifestream.oss.biz.service.FileService;
 import com.sunrisejay.lifestream.oss.biz.strategy.FileStrategy;
 import jakarta.annotation.Resource;
@@ -16,13 +15,10 @@ public class FileServiceImpl implements FileService {
     @Resource
     private FileStrategy fileStrategy;
 
-    @Resource
-    private AliyunOSSProperties aliyunOSSProperties;
-
     @Override
     public Response<?> uploadFile(MultipartFile file) {
-        // 上传文件，使用配置中的 bucket name
-        String url = fileStrategy.uploadFile(file, aliyunOSSProperties.getBucketName());
+        // 上传文件，使用策略自己的 bucket name
+        String url = fileStrategy.uploadFile(file, fileStrategy.getBucketName());
 
         return Response.success(url);
     }

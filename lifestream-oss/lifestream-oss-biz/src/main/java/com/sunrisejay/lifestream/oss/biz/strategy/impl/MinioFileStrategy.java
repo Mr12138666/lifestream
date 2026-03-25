@@ -59,4 +59,9 @@ public class MinioFileStrategy implements FileStrategy {
         log.info("==> 上传文件至 Minio 成功，访问路径: {}", url);
         return url;
     }
+
+    @Override
+    public String getBucketName() {
+        return minioProperties.getBucketName();
+    }
 }

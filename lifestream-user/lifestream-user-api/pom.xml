@@ -4,14 +4,14 @@
     <!-- 指定父项目 -->
     <parent>
         <groupId>com.sunrisejay</groupId>
-        <artifactId>lifestream-oss</artifactId>
+        <artifactId>lifestream-user</artifactId>
         <version>${revision}</version>
     </parent>
 
     <!-- 打包方式 -->
     <packaging>jar</packaging>
 
-    <artifactId>lifestream-oss-api</artifactId>
+    <artifactId>lifestream-user-api</artifactId>
     <name>${project.artifactId}</name>
     <description>RPC层, 供其他服务调用</description>
 
@@ -20,18 +20,5 @@
             <groupId>com.sunrisejay</groupId>
             <artifactId>lifestream-common</artifactId>
         </dependency>
-        <!-- OpenFeign -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
-        </dependency>
-
-        <!-- 负载均衡 -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-loadbalancer</artifactId>
-        </dependency>
-
     </dependencies>
-
 </project>

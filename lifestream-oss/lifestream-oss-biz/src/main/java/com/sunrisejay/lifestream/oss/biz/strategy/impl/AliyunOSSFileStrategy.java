@@ -53,4 +53,9 @@ public class AliyunOSSFileStrategy implements FileStrategy  {
         log.info("==> 上传文件至阿里云 OSS 成功，访问路径: {}", url);
         return url;
     }
+
+    @Override
+    public String getBucketName() {
+        return aliyunOSSProperties.getBucketName();
+    }
 }

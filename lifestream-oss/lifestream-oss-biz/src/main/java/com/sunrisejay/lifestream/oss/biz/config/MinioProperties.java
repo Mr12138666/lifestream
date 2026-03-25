@@ -11,4 +11,8 @@ public class MinioProperties {
     private String endpoint;
     private String accessKey;
     private String secretKey;
+    /**
+     * Bucket名称
+     */
+    private String bucketName;
 }

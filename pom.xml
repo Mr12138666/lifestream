@@ -18,6 +18,7 @@
         <module>lifestream-framework</module>
         <module>lifestream-gateway</module>
         <module>lifestream-oss</module>
+        <module>lifestream-user</module>
     </modules>
 
     <properties>
@@ -218,6 +219,12 @@
                 <artifactId>jaxb-runtime</artifactId>
                 <version>${jaxb-runtime.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.sunrisejay</groupId>
+                <artifactId>lifestream-oss-api</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
         </dependencies>
 
     </dependencyManagement>

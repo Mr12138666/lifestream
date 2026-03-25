@@ -1,0 +1,1 @@
+package com.sunrisejay.lifestream.user.biz.domain;
