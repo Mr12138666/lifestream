@@ -20,6 +20,7 @@
         <module>lifestream-oss</module>
         <module>lifestream-user</module>
         <module>lifestream-kv</module>
+        <module>lifestream-distributed-id-generator</module>
     </modules>
 
     <properties>
