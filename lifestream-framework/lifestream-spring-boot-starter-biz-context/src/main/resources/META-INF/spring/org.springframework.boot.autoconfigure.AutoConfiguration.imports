@@ -1,1 +1,2 @@
 com.sunrisejay.framework.biz.context.config.ContextAutoConfiguration
+com.sunrisejay.framework.biz.context.config.FeignContextAutoConfiguration

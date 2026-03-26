@@ -18,6 +18,7 @@ public enum ResponseCodeEnum implements BaseExceptionInterface {
     LOGIN_TYPE_ERROR("OSS-20002", "登录类型错误"),
     USER_NOT_FOUND("OSS-20003", "该用户不存在"),
     MAIL_OR_PASSWORD_ERROR("OSS-20004", "邮箱或密码错误"),
+
     ;
     // 异常码
     private final String errorCode;

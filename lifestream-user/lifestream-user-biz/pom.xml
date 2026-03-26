@@ -80,6 +80,7 @@
             <artifactId>lifestream-oss-api</artifactId>
         </dependency>
 
+
     </dependencies>
 
     <build>
