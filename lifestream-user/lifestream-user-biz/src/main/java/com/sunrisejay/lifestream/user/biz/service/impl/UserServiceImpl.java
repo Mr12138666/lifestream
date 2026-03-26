@@ -23,6 +23,7 @@ import com.sunrisejay.lifestream.user.biz.rpc.OssRpcService;
 import com.sunrisejay.lifestream.user.biz.service.UserService;
 import com.sunrisejay.lifestream.user.dto.req.FindUserByMailReqDTO;
 import com.sunrisejay.lifestream.user.dto.req.RegisterUserReqDTO;
+import com.sunrisejay.lifestream.user.dto.req.UpdateUserPasswordReqDTO;
 import com.sunrisejay.lifestream.user.dto.resp.FindUserByMailRspDTO;
 import io.micrometer.common.util.StringUtils;
 import jakarta.annotation.Resource;
@@ -57,7 +58,7 @@ public class UserServiceImpl implements UserService {
      * 更新用户信息
      *
      * @param updateUserInfoReqVO
-     * @return
+     * @return Response<?>
      */
     @Override
     public Response<?> updateUserInfo(UpdateUserInfoReqVO updateUserInfoReqVO) {
@@ -226,6 +227,26 @@ public class UserServiceImpl implements UserService {
 
         return Response.success(findUserByMailRspDTO);
     }
+    /**
+     * 更新密码
+     *
+     * @param updateUserPasswordReqDTO
+     * @return
+     */
+    @Override
+    public Response<?> updatePassword(UpdateUserPasswordReqDTO updateUserPasswordReqDTO) {
+        // 获取当前请求对应的用户 ID
+        Long userId = LoginUserContextHolder.getUserId();
 
+        UserDO userDO = UserDO.builder()
+                .id(userId)
+                .password(updateUserPasswordReqDTO.getEncodePassword()) // 加密后的密码
+                .updateTime(LocalDateTime.now())
+                .build();
+        // 更新密码
+        userDOMapper.updateByPrimaryKeySelective(userDO);
+
+        return Response.success();
+    }
 
 }

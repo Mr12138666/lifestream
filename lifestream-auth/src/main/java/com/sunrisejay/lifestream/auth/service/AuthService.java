@@ -4,7 +4,7 @@ import com.sunrisejay.framework.common.response.Response;
 import com.sunrisejay.lifestream.auth.model.vo.user.UpdatePasswordReqVO;
 import com.sunrisejay.lifestream.auth.model.vo.user.UserLoginReqVO;
 
-public interface UserService {
+public interface AuthService {
 
     /**
      * 登录与注册

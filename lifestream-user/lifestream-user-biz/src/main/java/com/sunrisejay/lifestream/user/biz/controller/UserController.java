@@ -4,7 +4,10 @@ import com.sunrisejay.framework.biz.operationlog.aspect.ApiOperationLog;
 import com.sunrisejay.framework.common.response.Response;
 import com.sunrisejay.lifestream.user.biz.model.vo.UpdateUserInfoReqVO;
 import com.sunrisejay.lifestream.user.biz.service.UserService;
+import com.sunrisejay.lifestream.user.dto.req.FindUserByMailReqDTO;
 import com.sunrisejay.lifestream.user.dto.req.RegisterUserReqDTO;
+import com.sunrisejay.lifestream.user.dto.req.UpdateUserPasswordReqDTO;
+import com.sunrisejay.lifestream.user.dto.resp.FindUserByMailRspDTO;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
@@ -37,5 +40,15 @@ public class UserController {
     @ApiOperationLog(description = "用户注册")
     public Response<Long> register(@Validated @RequestBody RegisterUserReqDTO registerUserReqDTO) {
         return userService.register(registerUserReqDTO);
+    }
+    @PostMapping("/findByMail")
+    @ApiOperationLog(description = "手机号查询用户信息")
+    public Response<FindUserByMailRspDTO> findByMail(@Validated @RequestBody FindUserByMailReqDTO findUserByMailReqDTO) {
+        return userService.findByMail(findUserByMailReqDTO);
+    }
+    @PostMapping("/password/update")
+    @ApiOperationLog(description = "密码更新")
+    public Response<?> updatePassword(@Validated @RequestBody UpdateUserPasswordReqDTO updateUserPasswordReqDTO) {
+        return userService.updatePassword(updateUserPasswordReqDTO);
     }
 }
