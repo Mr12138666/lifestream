@@ -243,6 +243,11 @@
                 <artifactId>lifestream-kv-api</artifactId>
                 <version>${revision}</version>
             </dependency>
+            <dependency>
+                <groupId>com.sunrisejay</groupId>
+                <artifactId>lifestream-distributed-id-generator-api</artifactId>
+                <version>${revision}</version>
+            </dependency>
 
         </dependencies>
 

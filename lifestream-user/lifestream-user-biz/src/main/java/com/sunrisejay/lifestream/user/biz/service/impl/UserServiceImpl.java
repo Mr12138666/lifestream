@@ -19,6 +19,7 @@ import com.sunrisejay.lifestream.user.biz.domain.mapper.UserRoleDOMapper;
 import com.sunrisejay.lifestream.user.biz.enums.ResponseCodeEnum;
 import com.sunrisejay.lifestream.user.biz.enums.SexEnum;
 import com.sunrisejay.lifestream.user.biz.model.vo.UpdateUserInfoReqVO;
+import com.sunrisejay.lifestream.user.biz.rpc.DistributedIdGeneratorRpcService;
 import com.sunrisejay.lifestream.user.biz.rpc.OssRpcService;
 import com.sunrisejay.lifestream.user.biz.service.UserService;
 import com.sunrisejay.lifestream.user.dto.req.FindUserByMailReqDTO;
@@ -43,7 +44,8 @@ import java.util.Objects;
 @Slf4j
 public class UserServiceImpl implements UserService {
 
-
+    @Resource
+    private DistributedIdGeneratorRpcService distributedIdGeneratorRpcService;
     @Resource
     private UserRoleDOMapper userRoleDOMapper;
     @Resource
@@ -166,13 +168,17 @@ public class UserServiceImpl implements UserService {
         }
 
         // 否则注册新用户
-        // 获取全局自增的小哈书 ID
-        Long lifestreamId = redisTemplate.opsForValue().increment(RedisKeyConstants.LIFESTREAM_ID_GENERATOR_KEY);
+        // RPC: 调用分布式 ID 生成服务生成用户 ID
+        String userIdStr = distributedIdGeneratorRpcService.getUserId();
+        Long userId = Long.valueOf(userIdStr);
+        // RPC: 调用分布式 ID 生成服务生成时光溪 ID
+        String lifestreamId = distributedIdGeneratorRpcService.getLifeStreamId();
 
         UserDO userDO = UserDO.builder()
+                .id(userId)
                 .mail(mail)
-                .lifestreamId(String.valueOf(lifestreamId)) // 自动生成小红书号 ID
-                .nickname("小溪流" + lifestreamId) // 自动生成昵称, 如：小红薯10000
+                .lifestreamId(lifestreamId) // 自动生成小红书号 ID
+                .nickname("小溪流" + lifestreamId) // 自动生成昵称
                 .status(StatusEnum.ENABLE.getValue()) // 状态为启用
                 .createTime(LocalDateTime.now())
                 .updateTime(LocalDateTime.now())
@@ -181,9 +187,6 @@ public class UserServiceImpl implements UserService {
 
         // 添加入库
         userDOMapper.insert(userDO);
-
-        // 获取刚刚添加入库的用户 ID
-        Long userId = userDO.getId();
 
         // 给该用户分配一个默认角色
         UserRoleDO userRoleDO = UserRoleDO.builder()

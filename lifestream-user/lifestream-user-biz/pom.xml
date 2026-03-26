@@ -102,7 +102,10 @@
             <groupId>com.sunrisejay</groupId>
             <artifactId>lifestream-user-api</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>com.sunrisejay</groupId>
+            <artifactId>lifestream-distributed-id-generator-api</artifactId>
+        </dependency>
 
     </dependencies>
 

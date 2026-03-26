@@ -130,6 +130,11 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <dependency>
+            <groupId>com.sunrisejay</groupId>
+            <artifactId>lifestream-distributed-id-generator-api</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>
