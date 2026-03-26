@@ -1,0 +1,13 @@
+package com.sunrisejay.lifestream.kv.biz;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class LifeStreamKVBizApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(LifeStreamKVBizApplication.class, args);
+    }
+
+}

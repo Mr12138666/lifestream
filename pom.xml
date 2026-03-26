@@ -19,6 +19,7 @@
         <module>lifestream-gateway</module>
         <module>lifestream-oss</module>
         <module>lifestream-user</module>
+        <module>lifestream-kv</module>
     </modules>
 
     <properties>
@@ -236,6 +237,12 @@
                 <artifactId>lifestream-user-api</artifactId>
                 <version>${revision}</version>
             </dependency>
+            <dependency>
+                <groupId>com.sunrisejay</groupId>
+                <artifactId>lifestream-kv-api</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
         </dependencies>
 
     </dependencyManagement>
