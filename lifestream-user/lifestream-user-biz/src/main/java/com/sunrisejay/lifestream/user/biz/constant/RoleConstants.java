@@ -1,4 +1,4 @@
-package com.sunrisejay.lifestream.auth.constant;
+package com.sunrisejay.lifestream.user.biz.constant;
 
 public class RoleConstants {
 

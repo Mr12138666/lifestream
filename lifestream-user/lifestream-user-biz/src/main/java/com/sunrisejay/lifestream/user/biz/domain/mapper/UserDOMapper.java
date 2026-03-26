@@ -11,6 +11,13 @@ public interface UserDOMapper {
 
     UserDO selectByPrimaryKey(Long id);
 
+    /**
+     * 根据手机号查询记录
+     * @param mail
+     * @return
+     */
+    UserDO selectByMail(String mail);
+
     int updateByPrimaryKeySelective(UserDO record);
 
     int updateByPrimaryKey(UserDO record);

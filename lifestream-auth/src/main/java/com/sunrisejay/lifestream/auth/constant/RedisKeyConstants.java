@@ -1,11 +1,6 @@
-package com.quanxiaoha.xiaohashu.auth.constant;
+package com.sunrisejay.lifestream.auth.constant;
 
-/**
- * @author: 犬小哈
- * @date: 2024/5/21 15:04
- * @version: v1.0.0
- * @description: TODO
- **/
+
 public class RedisKeyConstants {
 
     /**

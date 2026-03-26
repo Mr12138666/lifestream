@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.sunrisejay.lifestream.auth.domain.mapper.RoleDOMapper">
-  <resultMap id="BaseResultMap" type="com.sunrisejay.lifestream.auth.domain.dataobject.RoleDO">
+<mapper namespace="com.sunrisejay.lifestream.user.biz.domain.mapper.RoleDOMapper">
+  <resultMap id="BaseResultMap" type="com.sunrisejay.lifestream.user.biz.domain.dataobject.RoleDO">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="role_name" jdbcType="VARCHAR" property="roleName" />
     <result column="role_key" jdbcType="VARCHAR" property="roleKey" />
@@ -16,7 +16,7 @@
     id, role_name, role_key, `status`, sort, remark, create_time, update_time, is_deleted
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from t_role
     where id = #{id,jdbcType=BIGINT}
@@ -30,17 +30,17 @@
     delete from t_role
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.sunrisejay.lifestream.auth.domain.dataobject.RoleDO">
-    insert into t_role (id, role_name, role_key, 
-      `status`, sort, remark, 
+  <insert id="insert" parameterType="com.sunrisejay.lifestream.user.biz.domain.dataobject.RoleDO">
+    insert into t_role (id, role_name, role_key,
+      `status`, sort, remark,
       create_time, update_time, is_deleted
       )
-    values (#{id,jdbcType=BIGINT}, #{roleName,jdbcType=VARCHAR}, #{roleKey,jdbcType=VARCHAR}, 
-      #{status,jdbcType=TINYINT}, #{sort,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=BIGINT}, #{roleName,jdbcType=VARCHAR}, #{roleKey,jdbcType=VARCHAR},
+      #{status,jdbcType=TINYINT}, #{sort,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR},
       #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{isDeleted,jdbcType=BIT}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.sunrisejay.lifestream.auth.domain.dataobject.RoleDO">
+  <insert id="insertSelective" parameterType="com.sunrisejay.lifestream.user.biz.domain.dataobject.RoleDO">
     insert into t_role
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -101,7 +101,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.sunrisejay.lifestream.auth.domain.dataobject.RoleDO">
+  <update id="updateByPrimaryKeySelective" parameterType="com.sunrisejay.lifestream.user.biz.domain.dataobject.RoleDO">
     update t_role
     <set>
       <if test="roleName != null">
@@ -131,7 +131,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.sunrisejay.lifestream.auth.domain.dataobject.RoleDO">
+  <update id="updateByPrimaryKey" parameterType="com.sunrisejay.lifestream.user.biz.domain.dataobject.RoleDO">
     update t_role
     set role_name = #{roleName,jdbcType=VARCHAR},
       role_key = #{roleKey,jdbcType=VARCHAR},

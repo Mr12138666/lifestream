@@ -1,4 +1,4 @@
-package com.quanxiaoha.xiaohashu.auth.domain.dataobject;
+package com.sunrisejay.lifestream.auth.domain.dataobject;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

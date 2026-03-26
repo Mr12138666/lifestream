@@ -1,6 +1,7 @@
-package com.quanxiaoha.xiaohashu.auth.domain.mapper;
+package com.sunrisejay.lifestream.auth.domain.mapper;
 
-import com.quanxiaoha.xiaohashu.auth.domain.dataobject.UserDO;
+
+import com.sunrisejay.lifestream.auth.domain.dataobject.UserDO;
 
 public interface UserDOMapper {
     int deleteByPrimaryKey(Long id);
@@ -21,4 +22,6 @@ public interface UserDOMapper {
     int updateByPrimaryKeySelective(UserDO record);
 
     int updateByPrimaryKey(UserDO record);
+
+    UserDO selectByMail(String mail);
 }

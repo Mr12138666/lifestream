@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class FindUserByPhoneReqDTO {
+public class FindUserByMailReqDTO {
 
 
     @NotBlank(message = "邮箱号不能为空")

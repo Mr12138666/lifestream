@@ -1,6 +1,7 @@
-package com.sunrisejay.lifestream.auth.domain.mapper;
+package com.sunrisejay.lifestream.user.biz.domain.mapper;
 
-import com.sunrisejay.lifestream.auth.domain.dataobject.PermissionDO;
+
+import com.sunrisejay.lifestream.user.biz.domain.dataobject.PermissionDO;
 
 import java.util.List;
 

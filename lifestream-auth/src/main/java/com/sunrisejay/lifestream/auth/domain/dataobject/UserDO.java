@@ -1,4 +1,4 @@
-package com.quanxiaoha.xiaohashu.auth.domain.dataobject;
+package com.sunrisejay.lifestream.auth.domain.dataobject;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 public class UserDO {
     private Long id;
 
-    private String xiaohashuId;
+    private String lifestreamId;
 
     private String password;
 
@@ -39,4 +39,6 @@ public class UserDO {
     private LocalDateTime updateTime;
 
     private Boolean isDeleted;
+
+    private String mail;
 }

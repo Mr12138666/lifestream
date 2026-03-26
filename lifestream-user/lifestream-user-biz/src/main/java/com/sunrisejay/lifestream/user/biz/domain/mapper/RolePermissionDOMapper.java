@@ -1,6 +1,7 @@
-package com.sunrisejay.lifestream.auth.domain.mapper;
+package com.sunrisejay.lifestream.user.biz.domain.mapper;
 
-import com.sunrisejay.lifestream.auth.domain.dataobject.RolePermissionDO;
+
+import com.sunrisejay.lifestream.user.biz.domain.dataobject.RolePermissionDO;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

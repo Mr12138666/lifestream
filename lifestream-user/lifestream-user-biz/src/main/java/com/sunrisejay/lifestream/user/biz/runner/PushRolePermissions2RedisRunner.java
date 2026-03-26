@@ -1,8 +1,17 @@
-package com.sunrisejay.lifestream.auth.runner;
+package com.sunrisejay.lifestream.user.biz.runner;
+
 
 import cn.hutool.core.collection.CollUtil;
+import com.alibaba.nacos.shaded.com.google.common.collect.Lists;
+import com.alibaba.nacos.shaded.com.google.common.collect.Maps;
 import com.sunrisejay.framework.common.util.JsonUtils;
-import com.sunrisejay.lifestream.auth.constant.RedisKeyConstants;
+import com.sunrisejay.lifestream.user.biz.constant.RedisKeyConstants;
+import com.sunrisejay.lifestream.user.biz.domain.dataobject.PermissionDO;
+import com.sunrisejay.lifestream.user.biz.domain.dataobject.RoleDO;
+import com.sunrisejay.lifestream.user.biz.domain.dataobject.RolePermissionDO;
+import com.sunrisejay.lifestream.user.biz.domain.mapper.PermissionDOMapper;
+import com.sunrisejay.lifestream.user.biz.domain.mapper.RoleDOMapper;
+import com.sunrisejay.lifestream.user.biz.domain.mapper.RolePermissionDOMapper;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.ApplicationArguments;

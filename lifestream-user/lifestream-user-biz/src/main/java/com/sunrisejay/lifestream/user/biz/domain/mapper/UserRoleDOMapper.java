@@ -1,6 +1,7 @@
-package com.sunrisejay.lifestream.auth.domain.mapper;
+package com.sunrisejay.lifestream.user.biz.domain.mapper;
 
-import com.sunrisejay.lifestream.auth.domain.dataobject.UserRoleDO;
+
+import com.sunrisejay.lifestream.user.biz.domain.dataobject.UserRoleDO;
 
 public interface UserRoleDOMapper {
     int deleteByPrimaryKey(Long id);

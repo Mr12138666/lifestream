@@ -1,4 +1,4 @@
-package com.sunrisejay.lifestream.auth.validator;
+package com.sunrisejay.framework.common.validator;
 
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;

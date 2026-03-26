@@ -1,6 +1,7 @@
-package com.sunrisejay.lifestream.auth.domain.mapper;
+package com.sunrisejay.lifestream.user.biz.domain.mapper;
 
-import com.sunrisejay.lifestream.auth.domain.dataobject.RoleDO;
+
+import com.sunrisejay.lifestream.user.biz.domain.dataobject.RoleDO;
 
 import java.util.List;
 
@@ -13,10 +14,15 @@ public interface RoleDOMapper {
 
     RoleDO selectByPrimaryKey(Long id);
 
+    /**
+     * 查询所有被启用的角色
+     *
+     * @return
+     */
+    List<RoleDO> selectEnabledList();
+
     int updateByPrimaryKeySelective(RoleDO record);
 
     int updateByPrimaryKey(RoleDO record);
-
-    List<RoleDO> selectEnabledList();
 
 }

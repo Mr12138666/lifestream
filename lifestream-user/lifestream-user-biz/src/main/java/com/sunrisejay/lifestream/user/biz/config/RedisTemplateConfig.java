@@ -1,4 +1,4 @@
-package com.sunrisejay.lifestream.auth.config;
+package com.sunrisejay.lifestream.user.biz.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

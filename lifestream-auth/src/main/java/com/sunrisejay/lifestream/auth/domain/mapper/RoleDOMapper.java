@@ -1,6 +1,7 @@
-package com.quanxiaoha.xiaohashu.auth.domain.mapper;
+package com.sunrisejay.lifestream.auth.domain.mapper;
 
-import com.quanxiaoha.xiaohashu.auth.domain.dataobject.RoleDO;
+
+import com.sunrisejay.lifestream.auth.domain.dataobject.RoleDO;
 
 import java.util.List;
 
