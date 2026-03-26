@@ -2,9 +2,11 @@ package com.sunrisejay.lifestream.user.biz.service;
 
 import com.sunrisejay.framework.common.response.Response;
 import com.sunrisejay.lifestream.user.biz.model.vo.UpdateUserInfoReqVO;
+import com.sunrisejay.lifestream.user.dto.req.FindUserByIdReqDTO;
 import com.sunrisejay.lifestream.user.dto.req.FindUserByMailReqDTO;
 import com.sunrisejay.lifestream.user.dto.req.RegisterUserReqDTO;
 import com.sunrisejay.lifestream.user.dto.req.UpdateUserPasswordReqDTO;
+import com.sunrisejay.lifestream.user.dto.resp.FindUserByIdRspDTO;
 import com.sunrisejay.lifestream.user.dto.resp.FindUserByMailRspDTO;
 
 public interface UserService {
@@ -27,7 +29,7 @@ public interface UserService {
     /**
      * 根据手机号查询用户信息
      *
-     * @param findUserByMailRspDTO
+     * @param findUserByMailReqDTO
      * @return
      */
     Response<FindUserByMailRspDTO> findByMail(FindUserByMailReqDTO findUserByMailReqDTO);
@@ -38,4 +40,11 @@ public interface UserService {
      * @return
      */
     Response<?> updatePassword(UpdateUserPasswordReqDTO updateUserPasswordReqDTO);
+    /**
+     * 根据用户 ID 查询用户信息
+     *
+     * @param findUserByIdReqDTO
+     * @return
+     */
+    Response<FindUserByIdRspDTO> findById(FindUserByIdReqDTO findUserByIdReqDTO);
 }

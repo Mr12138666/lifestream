@@ -21,6 +21,7 @@
         <module>lifestream-user</module>
         <module>lifestream-kv</module>
         <module>lifestream-distributed-id-generator</module>
+        <module>lifestream-note</module>
     </modules>
 
     <properties>
