@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.sunrisejay.lifestream.auth.domain.mapper.UserDOMapper">
-  <resultMap id="BaseResultMap" type="com.sunrisejay.lifestream.auth.domain.dataobject.UserDO">
+<mapper namespace="com.quanxiaoha.xiaohashu.auth.domain.mapper.UserDOMapper">
+  <resultMap id="BaseResultMap" type="com.quanxiaoha.xiaohashu.auth.domain.dataobject.UserDO">
     <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="lifestream_id" jdbcType="VARCHAR" property="lifestreamId" />
+    <result column="xiaohashu_id" jdbcType="VARCHAR" property="xiaohashuId" />
     <result column="password" jdbcType="VARCHAR" property="password" />
     <result column="nickname" jdbcType="VARCHAR" property="nickname" />
     <result column="avatar" jdbcType="VARCHAR" property="avatar" />
     <result column="birthday" jdbcType="DATE" property="birthday" />
     <result column="background_img" jdbcType="VARCHAR" property="backgroundImg" />
     <result column="phone" jdbcType="VARCHAR" property="phone" />
-    <result column="mail" jdbcType="VARCHAR" property="mail" />
     <result column="sex" jdbcType="TINYINT" property="sex" />
     <result column="status" jdbcType="TINYINT" property="status" />
     <result column="introduction" jdbcType="VARCHAR" property="introduction" />
@@ -19,8 +18,8 @@
     <result column="is_deleted" jdbcType="BIT" property="isDeleted" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, lifestream_id, `password`, nickname, avatar, birthday, background_img, phone, 
-    mail, sex, `status`, introduction, create_time, update_time, is_deleted
+    id, xiaohashu_id, `password`, nickname, avatar, birthday, background_img, phone, 
+    sex, `status`, introduction, create_time, update_time, is_deleted
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
@@ -28,35 +27,35 @@
     from t_user
     where id = #{id,jdbcType=BIGINT}
   </select>
-    <select id="selectByMail" resultMap="BaseResultMap">
-        select id, password from t_user where mail = #{mail}
-    </select>
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+
+  <select id="selectByPhone" resultMap="BaseResultMap">
+    select id, password from t_user where phone = #{phone}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from t_user
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.sunrisejay.lifestream.auth.domain.dataobject.UserDO" useGeneratedKeys="true" keyProperty="id">
-    insert into t_user (lifestream_id, `password`,
+  <insert id="insert" parameterType="com.quanxiaoha.xiaohashu.auth.domain.dataobject.UserDO" useGeneratedKeys="true" keyProperty="id">
+    insert into t_user (id, xiaohashu_id, `password`, 
       nickname, avatar, birthday, 
-      background_img, phone, mail, 
-      sex, `status`, introduction, 
-      create_time, update_time, is_deleted
-      )
-    values (#{lifestreamId,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
+      background_img, phone, sex, 
+      `status`, introduction, create_time, 
+      update_time, is_deleted)
+    values (#{id,jdbcType=BIGINT}, #{xiaohashuId,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{nickname,jdbcType=VARCHAR}, #{avatar,jdbcType=VARCHAR}, #{birthday,jdbcType=DATE}, 
-      #{backgroundImg,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{mail,jdbcType=VARCHAR}, 
-      #{sex,jdbcType=TINYINT}, #{status,jdbcType=TINYINT}, #{introduction,jdbcType=VARCHAR}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{isDeleted,jdbcType=BIT}
-      )
+      #{backgroundImg,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{sex,jdbcType=TINYINT}, 
+      #{status,jdbcType=TINYINT}, #{introduction,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{isDeleted,jdbcType=BIT})
   </insert>
-  <insert id="insertSelective" parameterType="com.sunrisejay.lifestream.auth.domain.dataobject.UserDO">
+  <insert id="insertSelective" parameterType="com.quanxiaoha.xiaohashu.auth.domain.dataobject.UserDO">
     insert into t_user
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
       </if>
-      <if test="lifestreamId != null">
-        lifestream_id,
+      <if test="xiaohashuId != null">
+        xiaohashu_id,
       </if>
       <if test="password != null">
         `password`,
@@ -75,9 +74,6 @@
       </if>
       <if test="phone != null">
         phone,
-      </if>
-      <if test="mail != null">
-        mail,
       </if>
       <if test="sex != null">
         sex,
@@ -102,8 +98,8 @@
       <if test="id != null">
         #{id,jdbcType=BIGINT},
       </if>
-      <if test="lifestreamId != null">
-        #{lifestreamId,jdbcType=VARCHAR},
+      <if test="xiaohashuId != null">
+        #{xiaohashuId,jdbcType=VARCHAR},
       </if>
       <if test="password != null">
         #{password,jdbcType=VARCHAR},
@@ -122,9 +118,6 @@
       </if>
       <if test="phone != null">
         #{phone,jdbcType=VARCHAR},
-      </if>
-      <if test="mail != null">
-        #{mail,jdbcType=VARCHAR},
       </if>
       <if test="sex != null">
         #{sex,jdbcType=TINYINT},
@@ -146,11 +139,11 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.sunrisejay.lifestream.auth.domain.dataobject.UserDO">
+  <update id="updateByPrimaryKeySelective" parameterType="com.quanxiaoha.xiaohashu.auth.domain.dataobject.UserDO">
     update t_user
     <set>
-      <if test="lifestreamId != null">
-        lifestream_id = #{lifestreamId,jdbcType=VARCHAR},
+      <if test="xiaohashuId != null">
+        xiaohashu_id = #{xiaohashuId,jdbcType=VARCHAR},
       </if>
       <if test="password != null">
         `password` = #{password,jdbcType=VARCHAR},
@@ -169,9 +162,6 @@
       </if>
       <if test="phone != null">
         phone = #{phone,jdbcType=VARCHAR},
-      </if>
-      <if test="mail != null">
-        mail = #{mail,jdbcType=VARCHAR},
       </if>
       <if test="sex != null">
         sex = #{sex,jdbcType=TINYINT},
@@ -194,16 +184,15 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.sunrisejay.lifestream.auth.domain.dataobject.UserDO">
+  <update id="updateByPrimaryKey" parameterType="com.quanxiaoha.xiaohashu.auth.domain.dataobject.UserDO">
     update t_user
-    set lifestream_id = #{lifestreamId,jdbcType=VARCHAR},
+    set xiaohashu_id = #{xiaohashuId,jdbcType=VARCHAR},
       `password` = #{password,jdbcType=VARCHAR},
       nickname = #{nickname,jdbcType=VARCHAR},
       avatar = #{avatar,jdbcType=VARCHAR},
       birthday = #{birthday,jdbcType=DATE},
       background_img = #{backgroundImg,jdbcType=VARCHAR},
       phone = #{phone,jdbcType=VARCHAR},
-      mail = #{mail,jdbcType=VARCHAR},
       sex = #{sex,jdbcType=TINYINT},
       `status` = #{status,jdbcType=TINYINT},
       introduction = #{introduction,jdbcType=VARCHAR},

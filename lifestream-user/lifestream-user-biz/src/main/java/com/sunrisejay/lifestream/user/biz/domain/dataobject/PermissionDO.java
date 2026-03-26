@@ -1,4 +1,4 @@
-package com.quanxiaoha.xiaohashu.auth.domain.dataobject;
+package com.sunrisejay.lifestream.auth.domain.dataobject;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
-
+import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18,7 +18,7 @@ public class PermissionDO {
 
     private String name;
 
-    private Integer type;
+    private Byte type;
 
     private String menuUrl;
 
@@ -28,12 +28,13 @@ public class PermissionDO {
 
     private String permissionKey;
 
-    private Integer status;
+    private Byte status;
 
     private LocalDateTime createTime;
 
     private LocalDateTime updateTime;
 
     private Boolean isDeleted;
+
 
 }

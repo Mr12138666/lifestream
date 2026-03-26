@@ -1,6 +1,6 @@
-package com.quanxiaoha.xiaohashu.auth.domain.mapper;
+package com.sunrisejay.lifestream.auth.domain.mapper;
 
-import com.quanxiaoha.xiaohashu.auth.domain.dataobject.RoleDO;
+import com.sunrisejay.lifestream.auth.domain.dataobject.RoleDO;
 
 import java.util.List;
 
@@ -13,15 +13,10 @@ public interface RoleDOMapper {
 
     RoleDO selectByPrimaryKey(Long id);
 
-    /**
-     * 查询所有被启用的角色
-     *
-     * @return
-     */
-    List<RoleDO> selectEnabledList();
-
     int updateByPrimaryKeySelective(RoleDO record);
 
     int updateByPrimaryKey(RoleDO record);
+
+    List<RoleDO> selectEnabledList();
 
 }

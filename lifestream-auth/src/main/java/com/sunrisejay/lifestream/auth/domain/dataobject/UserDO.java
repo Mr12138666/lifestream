@@ -1,4 +1,4 @@
-package com.sunrisejay.lifestream.auth.domain.dataobject;
+package com.quanxiaoha.xiaohashu.auth.domain.dataobject;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
-import java.util.Date;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -14,7 +14,7 @@ import java.util.Date;
 public class UserDO {
     private Long id;
 
-    private String lifestreamId;
+    private String xiaohashuId;
 
     private String password;
 
@@ -28,9 +28,7 @@ public class UserDO {
 
     private String phone;
 
-    private String mail;
-
-    private Byte sex;
+    private Integer sex;
 
     private Integer status;
 
@@ -41,5 +39,4 @@ public class UserDO {
     private LocalDateTime updateTime;
 
     private Boolean isDeleted;
-
 }

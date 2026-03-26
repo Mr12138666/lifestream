@@ -1,4 +1,4 @@
-package com.sunrisejay.lifestream.auth.domain.dataobject;
+package com.quanxiaoha.xiaohashu.auth.domain.dataobject;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
-import java.util.Date;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -23,6 +23,5 @@ public class RolePermissionDO {
     private LocalDateTime updateTime;
 
     private Boolean isDeleted;
-
 
 }

@@ -1,6 +1,6 @@
-package com.quanxiaoha.xiaohashu.auth.domain.mapper;
+package com.sunrisejay.lifestream.auth.domain.mapper;
 
-import com.quanxiaoha.xiaohashu.auth.domain.dataobject.PermissionDO;
+import com.sunrisejay.lifestream.auth.domain.dataobject.PermissionDO;
 
 import java.util.List;
 
@@ -13,15 +13,14 @@ public interface PermissionDOMapper {
 
     PermissionDO selectByPrimaryKey(Long id);
 
-    /**
-     * 查询所有被启用的权限
-     *
-     * @return
-     */
-    List<PermissionDO> selectAppEnabledList();
-
     int updateByPrimaryKeySelective(PermissionDO record);
 
     int updateByPrimaryKey(PermissionDO record);
 
+    /**
+     * 查询 APP 端所有被启用的权限
+     *
+     * @return
+     */
+    List<PermissionDO> selectAppEnabledList();
 }

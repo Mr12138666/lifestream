@@ -1,6 +1,6 @@
-package com.sunrisejay.lifestream.auth.domain.mapper;
+package com.quanxiaoha.xiaohashu.auth.domain.mapper;
 
-import com.sunrisejay.lifestream.auth.domain.dataobject.UserDO;
+import com.quanxiaoha.xiaohashu.auth.domain.dataobject.UserDO;
 
 public interface UserDOMapper {
     int deleteByPrimaryKey(Long id);
@@ -11,9 +11,14 @@ public interface UserDOMapper {
 
     UserDO selectByPrimaryKey(Long id);
 
+    /**
+     * 根据手机号查询记录
+     * @param phone
+     * @return
+     */
+    UserDO selectByPhone(String phone);
+
     int updateByPrimaryKeySelective(UserDO record);
 
     int updateByPrimaryKey(UserDO record);
-
-    UserDO selectByMail(String mail);
 }

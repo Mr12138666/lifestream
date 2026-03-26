@@ -231,6 +231,11 @@
                 <artifactId>feign-form</artifactId>
                 <version>${feign-form.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.sunrisejay</groupId>
+                <artifactId>lifestream-user-api</artifactId>
+                <version>${revision}</version>
+            </dependency>
         </dependencies>
 
     </dependencyManagement>
