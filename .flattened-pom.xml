@@ -18,6 +18,7 @@
     <module>lifestream-distributed-id-generator</module>
     <module>lifestream-note</module>
     <module>lifestream-user-relation</module>
+    <module>lifestream-count</module>
   </modules>
   <properties>
     <minio.version>8.2.1</minio.version>
@@ -41,6 +42,7 @@
     <aliyun-sdk-oss.version>3.17.4</aliyun-sdk-oss.version>
     <activation.version>1.1.1</activation.version>
     <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
+    <buffertrigger.version>0.2.21</buffertrigger.version>
     <jaxb-runtime.version>2.3.3</jaxb-runtime.version>
     <revision>0.0.1-SNAPSHOT</revision>
     <lombok.version>1.18.30</lombok.version>
@@ -227,6 +229,11 @@
         <groupId>org.apache.rocketmq</groupId>
         <artifactId>rocketmq-spring-boot-starter</artifactId>
         <version>${rocketmq.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.github.phantomthief</groupId>
+        <artifactId>buffer-trigger</artifactId>
+        <version>${buffertrigger.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
