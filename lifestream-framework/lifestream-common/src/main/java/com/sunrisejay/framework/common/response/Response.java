@@ -57,7 +57,7 @@ public class Response<T> implements Serializable {
         Response<T> response = new Response<>();
         response.setSuccess(false);
         response.setErrorCode(bizException.getErrorCode());
-        response.setMessage(bizException.getMessage());
+        response.setMessage(bizException.getErrorMessage());
         return response;
     }
     public  static <T> Response<T> fail(BaseExceptionInterface baseException){
