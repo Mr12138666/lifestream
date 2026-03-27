@@ -2,6 +2,8 @@ package com.sunrisejay.lifestream.note.biz.controller;
 
 import com.sunrisejay.framework.biz.operationlog.aspect.ApiOperationLog;
 import com.sunrisejay.framework.common.response.Response;
+import com.sunrisejay.lifestream.note.biz.model.vo.FindNoteDetailReqVO;
+import com.sunrisejay.lifestream.note.biz.model.vo.FindNoteDetailRspVO;
 import com.sunrisejay.lifestream.note.biz.model.vo.PublishNoteReqVO;
 import com.sunrisejay.lifestream.note.biz.service.NoteService;
 import jakarta.annotation.Resource;
@@ -25,5 +27,9 @@ public class NoteController {
     public Response<?> publishNote(@Validated @RequestBody PublishNoteReqVO publishNoteReqVO) {
         return noteService.publishNote(publishNoteReqVO);
     }
-
+    @PostMapping(value = "/detail")
+    @ApiOperationLog(description = "笔记详情")
+    public Response<FindNoteDetailRspVO> findNoteDetail(@Validated @RequestBody FindNoteDetailReqVO findNoteDetailReqVO) {
+        return noteService.findNoteDetail(findNoteDetailReqVO);
+    }
 }

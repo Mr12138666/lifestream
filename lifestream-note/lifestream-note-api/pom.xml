@@ -20,5 +20,6 @@
             <groupId>com.sunrisejay</groupId>
             <artifactId>lifestream-common</artifactId>
         </dependency>
+
     </dependencies>
 </project>

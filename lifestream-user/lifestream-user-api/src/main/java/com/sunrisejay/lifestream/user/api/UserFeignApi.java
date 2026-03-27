@@ -2,9 +2,11 @@ package com.sunrisejay.lifestream.user.api;
 
 import com.sunrisejay.framework.common.response.Response;
 import com.sunrisejay.lifestream.user.constant.ApiConstants;
+import com.sunrisejay.lifestream.user.dto.req.FindUserByIdReqDTO;
 import com.sunrisejay.lifestream.user.dto.req.FindUserByMailReqDTO;
 import com.sunrisejay.lifestream.user.dto.req.RegisterUserReqDTO;
 import com.sunrisejay.lifestream.user.dto.req.UpdateUserPasswordReqDTO;
+import com.sunrisejay.lifestream.user.dto.resp.FindUserByIdRspDTO;
 import com.sunrisejay.lifestream.user.dto.resp.FindUserByMailRspDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -39,5 +41,12 @@ public interface UserFeignApi {
      */
     @PostMapping(value = PREFIX + "/findByMail")
     Response<FindUserByMailRspDTO> findByMail(@RequestBody FindUserByMailReqDTO findUserByMailReqDTO);
-
+    /**
+     * 根据用户 ID 查询用户信息
+     *
+     * @param findUserByIdReqDTO
+     * @return
+     */
+    @PostMapping(value = PREFIX + "/findById")
+    Response<FindUserByIdRspDTO> findById(@RequestBody FindUserByIdReqDTO findUserByIdReqDTO);
 }
