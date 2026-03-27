@@ -192,14 +192,27 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.sunrisejay.lifestream.note.biz.domain.dataobject.NoteDO">
       update t_note
-      set title = #{title,jdbcType=VARCHAR},
+      set title            = #{title,jdbcType=VARCHAR},
           is_content_empty = #{isContentEmpty,jdbcType=BIT},
-          topic_id = #{topicId,jdbcType=BIGINT},
-          topic_name = #{topicName,jdbcType=VARCHAR},
-          `type` = #{type,jdbcType=TINYINT},
-          img_uris = #{imgUris,jdbcType=VARCHAR},
-          video_uri = #{videoUri,jdbcType=VARCHAR},
-          update_time = #{updateTime,jdbcType=TIMESTAMP}
+          topic_id         = #{topicId,jdbcType=BIGINT},
+          topic_name       = #{topicName,jdbcType=VARCHAR},
+          `type`           = #{type,jdbcType=TINYINT},
+          img_uris         = #{imgUris,jdbcType=VARCHAR},
+          video_uri        = #{videoUri,jdbcType=VARCHAR},
+          update_time      = #{updateTime,jdbcType=TIMESTAMP}
       where id = #{id,jdbcType=BIGINT}
   </update>
+    <update id="updateVisibleOnlyMe" parameterType="com.sunrisejay.lifestream.note.biz.domain.dataobject.NoteDO">
+        update t_note
+        set visible = #{visible,jdbcType=TINYINT},
+            update_time = #{updateTime,jdbcType=TIMESTAMP}
+        where id = #{id,jdbcType=BIGINT} and `status` = 1
+    </update>
+    <update id="updateIsTop" parameterType="com.sunrisejay.lifestream.note.biz.domain.dataobject.NoteDO">
+        update t_note
+        set is_top = #{isTop,jdbcType=BIT},
+            update_time = #{updateTime,jdbcType=TIMESTAMP}
+        where id = #{id,jdbcType=BIGINT} and creator_id = #{creatorId,jdbcType=BIGINT}
+    </update>
+
 </mapper>

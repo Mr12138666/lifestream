@@ -1,10 +1,7 @@
 package com.sunrisejay.lifestream.note.biz.service;
 
 import com.sunrisejay.framework.common.response.Response;
-import com.sunrisejay.lifestream.note.biz.model.vo.FindNoteDetailReqVO;
-import com.sunrisejay.lifestream.note.biz.model.vo.FindNoteDetailRspVO;
-import com.sunrisejay.lifestream.note.biz.model.vo.PublishNoteReqVO;
-import com.sunrisejay.lifestream.note.biz.model.vo.UpdateNoteReqVO;
+import com.sunrisejay.lifestream.note.biz.model.vo.*;
 
 public interface NoteService {
 
@@ -26,4 +23,29 @@ public interface NoteService {
      * @return
      */
     Response<?> updateNote(UpdateNoteReqVO updateNoteReqVO);
+
+    /**
+     * 删除本地笔记缓存
+     * @param noteId
+     */
+    void deleteNoteLocalCache(Long noteId);
+    /**
+     * 删除笔记
+     * @param deleteNoteReqVO
+     * @return
+     */
+    Response<?> deleteNote(DeleteNoteReqVO deleteNoteReqVO);
+    /**
+     * 笔记仅对自己可见
+     * @param updateNoteVisibleOnlyMeReqVO
+     * @return
+     */
+    Response<?> visibleOnlyMe(UpdateNoteVisibleOnlyMeReqVO updateNoteVisibleOnlyMeReqVO);
+    /**
+     * 笔记置顶 / 取消置顶
+     * @param topNoteReqVO
+     * @return
+     */
+    Response<?> topNote(TopNoteReqVO topNoteReqVO);
+
 }
