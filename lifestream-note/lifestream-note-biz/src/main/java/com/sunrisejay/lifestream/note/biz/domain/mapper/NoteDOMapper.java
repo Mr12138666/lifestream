@@ -12,8 +12,15 @@ public interface NoteDOMapper {
     NoteDO selectByPrimaryKey(Long id);
 
     int updateByPrimaryKeySelective(NoteDO record);
-
+    int selectCountByNoteId(Long noteId);
     int updateByPrimaryKey(NoteDO record);
     int updateVisibleOnlyMe(NoteDO noteDO);
     int updateIsTop(NoteDO noteDO);
+
+    /**
+     * 查询笔记的发布者用户 ID
+     * @param noteId
+     * @return
+     */
+    Long selectCreatorIdByNoteId(Long noteId);
 }

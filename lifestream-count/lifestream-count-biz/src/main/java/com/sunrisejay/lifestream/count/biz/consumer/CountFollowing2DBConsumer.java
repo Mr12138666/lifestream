@@ -5,7 +5,7 @@ import com.sunrisejay.framework.common.util.JsonUtils;
 import com.sunrisejay.lifestream.count.biz.constant.MQConstants;
 import com.sunrisejay.lifestream.count.biz.domain.mapper.UserCountDOMapper;
 import com.sunrisejay.lifestream.count.biz.enums.FollowUnfollowTypeEnum;
-import com.sunrisejay.lifestream.count.biz.model.CountFollowUnfollowMqDTO;
+import com.sunrisejay.lifestream.count.biz.model.dto.CountFollowUnfollowMqDTO;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
