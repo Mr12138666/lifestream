@@ -1,8 +1,9 @@
 package com.sunrisejay.lifestream.user.relation.biz.controller;
 
 import com.sunrisejay.framework.biz.operationlog.aspect.ApiOperationLog;
+import com.sunrisejay.framework.common.response.PageResponse;
 import com.sunrisejay.framework.common.response.Response;
-import com.sunrisejay.lifestream.user.relation.biz.model.vo.FollowUserReqVO;
+import com.sunrisejay.lifestream.user.relation.biz.model.vo.*;
 import com.sunrisejay.lifestream.user.relation.biz.service.RelationService;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
@@ -24,5 +25,19 @@ public class RelationController {
     public Response<?> follow(@Validated @RequestBody FollowUserReqVO followUserReqVO) {
         return relationService.follow(followUserReqVO);
     }
-
+    @PostMapping("/unfollow")
+    @ApiOperationLog(description = "取关用户")
+    public Response<?> unfollow(@Validated @RequestBody UnfollowUserReqVO unfollowUserReqVO) {
+        return relationService.unfollow(unfollowUserReqVO);
+    }
+    @PostMapping("/following/list")
+    @ApiOperationLog(description = "查询用户关注列表")
+    public PageResponse<FindFollowingUserRspVO> findFollowingList(@Validated @RequestBody FindFollowingListReqVO findFollowingListReqVO) {
+        return relationService.findFollowingList(findFollowingListReqVO);
+    }
+    @PostMapping("/fans/list")
+    @ApiOperationLog(description = "查询用户粉丝列表")
+    public PageResponse<FindFansUserRspVO> findFansList(@Validated @RequestBody FindFansListReqVO findFansListReqVO) {
+        return relationService.findFansList(findFansListReqVO);
+    }
 }

@@ -2,12 +2,11 @@ package com.sunrisejay.lifestream.user.biz.service;
 
 import com.sunrisejay.framework.common.response.Response;
 import com.sunrisejay.lifestream.user.biz.model.vo.UpdateUserInfoReqVO;
-import com.sunrisejay.lifestream.user.dto.req.FindUserByIdReqDTO;
-import com.sunrisejay.lifestream.user.dto.req.FindUserByMailReqDTO;
-import com.sunrisejay.lifestream.user.dto.req.RegisterUserReqDTO;
-import com.sunrisejay.lifestream.user.dto.req.UpdateUserPasswordReqDTO;
+import com.sunrisejay.lifestream.user.dto.req.*;
 import com.sunrisejay.lifestream.user.dto.resp.FindUserByIdRspDTO;
 import com.sunrisejay.lifestream.user.dto.resp.FindUserByMailRspDTO;
+
+import java.util.List;
 
 public interface UserService {
 
@@ -47,4 +46,11 @@ public interface UserService {
      * @return
      */
     Response<FindUserByIdRspDTO> findById(FindUserByIdReqDTO findUserByIdReqDTO);
+    /**
+     * 批量根据用户 ID 查询用户信息
+     *
+     * @param findUsersByIdsReqDTO
+     * @return
+     */
+    Response<List<FindUserByIdRspDTO>> findByIds(FindUsersByIdsReqDTO findUsersByIdsReqDTO);
 }
