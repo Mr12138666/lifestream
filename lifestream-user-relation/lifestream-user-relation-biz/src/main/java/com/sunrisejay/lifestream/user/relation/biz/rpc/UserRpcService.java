@@ -1,12 +1,15 @@
 package com.sunrisejay.lifestream.user.relation.biz.rpc;
 
+import cn.hutool.core.collection.CollUtil;
 import com.sunrisejay.framework.common.response.Response;
 import com.sunrisejay.lifestream.user.api.UserFeignApi;
 import com.sunrisejay.lifestream.user.dto.req.FindUserByIdReqDTO;
+import com.sunrisejay.lifestream.user.dto.req.FindUsersByIdsReqDTO;
 import com.sunrisejay.lifestream.user.dto.resp.FindUserByIdRspDTO;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Objects;
 
 @Component
@@ -33,6 +36,23 @@ public class UserRpcService {
 
         return response.getData();
     }
+    /**
+     * 批量查询用户信息
+     *
+     * @param userIds
+     * @return
+     */
+    public List<FindUserByIdRspDTO> findByIds(List<Long> userIds) {
+        FindUsersByIdsReqDTO findUsersByIdsReqDTO = new FindUsersByIdsReqDTO();
+        findUsersByIdsReqDTO.setIds(userIds);
 
+        Response<List<FindUserByIdRspDTO>> response = userFeignApi.findByIds(findUsersByIdsReqDTO);
+
+        if (!response.isSuccess() || Objects.isNull(response.getData()) || CollUtil.isEmpty(response.getData())) {
+            return null;
+        }
+
+        return response.getData();
+    }
 
 }

@@ -4,10 +4,7 @@ import com.sunrisejay.framework.biz.operationlog.aspect.ApiOperationLog;
 import com.sunrisejay.framework.common.response.Response;
 import com.sunrisejay.lifestream.user.biz.model.vo.UpdateUserInfoReqVO;
 import com.sunrisejay.lifestream.user.biz.service.UserService;
-import com.sunrisejay.lifestream.user.dto.req.FindUserByIdReqDTO;
-import com.sunrisejay.lifestream.user.dto.req.FindUserByMailReqDTO;
-import com.sunrisejay.lifestream.user.dto.req.RegisterUserReqDTO;
-import com.sunrisejay.lifestream.user.dto.req.UpdateUserPasswordReqDTO;
+import com.sunrisejay.lifestream.user.dto.req.*;
 import com.sunrisejay.lifestream.user.dto.resp.FindUserByIdRspDTO;
 import com.sunrisejay.lifestream.user.dto.resp.FindUserByMailRspDTO;
 import jakarta.annotation.Resource;
@@ -18,6 +15,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/user")
@@ -59,4 +58,10 @@ public class UserController {
     public Response<FindUserByIdRspDTO> findById(@Validated @RequestBody FindUserByIdReqDTO findUserByIdReqDTO) {
         return userService.findById(findUserByIdReqDTO);
     }
+    @PostMapping("/findByIds")
+    @ApiOperationLog(description = "批量查询用户信息")
+    public Response<List<FindUserByIdRspDTO>> findByIds(@Validated @RequestBody FindUsersByIdsReqDTO findUsersByIdsReqDTO) {
+        return userService.findByIds(findUsersByIdsReqDTO);
+    }
+
 }
