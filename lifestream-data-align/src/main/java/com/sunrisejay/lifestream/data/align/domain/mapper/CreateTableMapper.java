@@ -10,6 +10,7 @@ public interface CreateTableMapper {
      * @param tableNameSuffix
      */
     void createDataAlignFollowingCountTempTable(String tableNameSuffix);
+
     /**
      * 创建日增量表：粉丝数计数变更
      * @param tableNameSuffix
