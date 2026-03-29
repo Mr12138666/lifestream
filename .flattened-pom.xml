@@ -225,6 +225,11 @@
         <version>0.0.1-SNAPSHOT</version>
       </dependency>
       <dependency>
+        <groupId>com.sunrisejay</groupId>
+        <artifactId>lifestream-search-api</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+      </dependency>
+      <dependency>
         <groupId>com.github.ben-manes.caffeine</groupId>
         <artifactId>caffeine</artifactId>
         <version>${caffeine.version}</version>

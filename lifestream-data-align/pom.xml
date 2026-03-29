@@ -87,6 +87,16 @@
             <artifactId>lifestream-spring-boot-starter-jackson</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.sunrisejay</groupId>
+            <artifactId>lifestream-search-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+
         <!-- Rocket MQ -->
         <dependency>
             <groupId>org.apache.rocketmq</groupId>
@@ -100,6 +110,7 @@
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
         </dependency>
+
     </dependencies>
 
     <build>

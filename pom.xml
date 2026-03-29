@@ -27,6 +27,7 @@
         <module>lifestream-data-align</module>
         <module>lifestream-search</module>
         <module>lifestream-comment</module>
+
     </modules>
 
     <properties>
@@ -258,6 +259,11 @@
             <dependency>
                 <groupId>com.sunrisejay</groupId>
                 <artifactId>lifestream-distributed-id-generator-api</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.sunrisejay</groupId>
+                <artifactId>lifestream-search-api</artifactId>
                 <version>${revision}</version>
             </dependency>
 

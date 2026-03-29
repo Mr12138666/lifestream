@@ -6,6 +6,7 @@ import com.sunrisejay.lifestream.data.align.constant.TableConstants;
 import com.sunrisejay.lifestream.data.align.domain.mapper.DeleteMapper;
 import com.sunrisejay.lifestream.data.align.domain.mapper.SelectMapper;
 import com.sunrisejay.lifestream.data.align.domain.mapper.UpdateMapper;
+import com.sunrisejay.lifestream.data.align.rpc.SearchRpcService;
 import com.xxl.job.core.context.XxlJobHelper;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import jakarta.annotation.Resource;
@@ -29,6 +30,9 @@ public class FollowingCountShardingXxlJob {
     private DeleteMapper deleteMapper;
     @Resource
     private RedisTemplate<String, Object> redisTemplate;
+    @Resource
+    private SearchRpcService searchRpcService;
+
     /**
      * 分片广播任务
      */
@@ -81,6 +85,8 @@ public class FollowingCountShardingXxlJob {
                         // 更新 Hash 中的 Field 关注总数
                         redisTemplate.opsForHash().put(redisKey, RedisKeyConstants.FIELD_FOLLOWING_TOTAL, followingTotal);
                     }
+                    // 触发搜索用户文档重建
+                    searchRpcService.rebuildUserDocument(userId);
                 }
             });
 

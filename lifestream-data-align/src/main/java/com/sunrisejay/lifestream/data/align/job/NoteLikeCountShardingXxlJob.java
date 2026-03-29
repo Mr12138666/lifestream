@@ -6,6 +6,7 @@ import com.sunrisejay.lifestream.data.align.constant.TableConstants;
 import com.sunrisejay.lifestream.data.align.domain.mapper.DeleteMapper;
 import com.sunrisejay.lifestream.data.align.domain.mapper.SelectMapper;
 import com.sunrisejay.lifestream.data.align.domain.mapper.UpdateMapper;
+import com.sunrisejay.lifestream.data.align.rpc.SearchRpcService;
 import com.xxl.job.core.context.XxlJobHelper;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import jakarta.annotation.Resource;
@@ -35,6 +36,8 @@ public class NoteLikeCountShardingXxlJob {
     private DeleteMapper deleteMapper;
     @Resource
     private RedisTemplate<String, Object> redisTemplate;
+    @Resource
+    private SearchRpcService searchRpcService;
 
     /**
      * 分片广播任务
@@ -88,6 +91,8 @@ public class NoteLikeCountShardingXxlJob {
                         // 更新 Hash 中的 Field 点赞总数
                         redisTemplate.opsForHash().put(redisKey, RedisKeyConstants.FIELD_LIKE_TOTAL, likeTotal);
                     }
+                    // 触发搜索笔记文档重建
+                    searchRpcService.rebuildNoteDocument(noteId);
                 }
             });
 
