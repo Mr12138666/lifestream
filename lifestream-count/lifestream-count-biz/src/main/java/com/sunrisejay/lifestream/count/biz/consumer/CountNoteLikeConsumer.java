@@ -27,7 +27,7 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Component
-@RocketMQMessageListener(consumerGroup = "xiaohashu_group_" + MQConstants.TOPIC_COUNT_NOTE_LIKE, // Group 组
+@RocketMQMessageListener(consumerGroup = "lifestream_group_" + MQConstants.TOPIC_COUNT_NOTE_LIKE, // Group 组
         topic = MQConstants.TOPIC_COUNT_NOTE_LIKE // 主题 Topic
         )
 @Slf4j

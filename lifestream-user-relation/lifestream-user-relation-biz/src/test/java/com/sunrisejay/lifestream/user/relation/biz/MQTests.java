@@ -4,6 +4,7 @@ import com.sunrisejay.framework.common.util.JsonUtils;
 import com.sunrisejay.lifestream.user.relation.biz.constant.MQConstants;
 import com.sunrisejay.lifestream.user.relation.biz.model.dto.FollowUserMqDTO;
 import jakarta.annotation.Resource;
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.rocketmq.client.producer.SendCallback;
 import org.apache.rocketmq.client.producer.SendResult;
@@ -14,9 +15,12 @@ import org.springframework.messaging.Message;
 import org.springframework.messaging.support.MessageBuilder;
 
 import java.time.LocalDateTime;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 
 @SpringBootTest
 @Slf4j
+
 class MQTests {
 
     @Resource
@@ -25,9 +29,11 @@ class MQTests {
     /**
      * 测试：发送一万条 MQ
      */
+    @SneakyThrows
     @Test
     void testBatchSendMQ() {
-        for (long i = 0; i < 1000; i++) {
+        CountDownLatch latch = new CountDownLatch(10);  // 10条消息
+        for (long i = 6401; i < 6501; i++) {
             // 构建消息体 DTO
             FollowUserMqDTO followUserMqDTO = FollowUserMqDTO.builder()
                     .userId(i)
@@ -56,7 +62,12 @@ class MQTests {
                     log.error("==> MQ 发送异常: ", throwable);
                 }
             });
+
         }
+        // 阻塞主线程，等待所有消息发送完成（或超时）
+        latch.await(30, TimeUnit.SECONDS);
+        log.info("==> 所有消息发送完成");
+
     }
 
 }
