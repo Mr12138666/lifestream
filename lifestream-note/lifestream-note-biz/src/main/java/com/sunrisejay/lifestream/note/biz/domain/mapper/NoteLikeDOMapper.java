@@ -22,7 +22,12 @@ public interface NoteLikeDOMapper {
      */
     int update2UnlikeByUserIdAndNoteId(NoteLikeDO noteLikeDO);
     List<NoteLikeDO> selectByUserId(@Param("userId") Long userId);
-
+    /**
+     * 批量插入或更新
+     * @param noteLikeDOS
+     * @return
+     */
+    int batchInsertOrUpdate(@Param("noteLikeDOS") List<NoteLikeDO> noteLikeDOS);
     int updateByPrimaryKeySelective(NoteLikeDO record);
     List<NoteLikeDO> selectLikedByUserIdAndLimit(@Param("userId") Long userId, @Param("limit")  int limit);
     /**

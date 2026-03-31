@@ -21,6 +21,7 @@
     <module>lifestream-count</module>
     <module>lifestream-data-align</module>
     <module>lifestream-search</module>
+    <module>lifestream-comment</module>
   </modules>
   <properties>
     <minio.version>8.2.1</minio.version>

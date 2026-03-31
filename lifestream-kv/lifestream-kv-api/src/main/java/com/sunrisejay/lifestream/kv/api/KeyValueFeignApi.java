@@ -2,13 +2,14 @@ package com.sunrisejay.lifestream.kv.api;
 
 import com.sunrisejay.framework.common.response.Response;
 import com.sunrisejay.lifestream.kv.constant.ApiConstants;
-import com.sunrisejay.lifestream.kv.dto.req.AddNoteContentReqDTO;
-import com.sunrisejay.lifestream.kv.dto.req.DeleteNoteContentReqDTO;
-import com.sunrisejay.lifestream.kv.dto.req.FindNoteContentReqDTO;
+import com.sunrisejay.lifestream.kv.dto.req.*;
+import com.sunrisejay.lifestream.kv.dto.rsp.FindCommentContentRspDTO;
 import com.sunrisejay.lifestream.kv.dto.rsp.FindNoteContentRspDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+
+import java.util.List;
 
 @FeignClient(name = ApiConstants.SERVICE_NAME)
 public interface KeyValueFeignApi {
@@ -21,5 +22,12 @@ public interface KeyValueFeignApi {
     Response<FindNoteContentRspDTO> findNoteContent(@RequestBody FindNoteContentReqDTO findNoteContentReqDTO);
     @PostMapping(value = PREFIX + "/note/content/delete")
     Response<?> deleteNoteContent(@RequestBody DeleteNoteContentReqDTO deleteNoteContentReqDTO);
+    @PostMapping(value = PREFIX + "/comment/content/batchAdd")
+    Response<?> batchAddCommentContent(@RequestBody BatchAddCommentContentReqDTO batchAddCommentContentReqDTO);
+    @PostMapping(value = PREFIX + "/comment/content/batchFind")
+    Response<List<FindCommentContentRspDTO>> batchFindCommentContent(@RequestBody BatchFindCommentContentReqDTO batchFindCommentContentReqDTO);
+    @PostMapping(value = PREFIX + "/comment/content/delete")
+    Response<?> deleteCommentContent(@RequestBody DeleteCommentContentReqDTO deleteCommentContentReqDTO);
 
 }
+

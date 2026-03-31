@@ -65,6 +65,9 @@
         <xxl-job.version>2.4.1</xxl-job.version>
         <!-- HLRC 在 9.x 已移除，先固定到 7.17.x 保持现有代码可用 -->
         <elasticsearch.version>7.17.29</elasticsearch.version>
+
+        <rocketmq-client.version>4.9.4</rocketmq-client.version>
+
     </properties>
 
     <!-- 统一依赖管理 -->
@@ -251,6 +254,7 @@
                 <artifactId>lifestream-user-api</artifactId>
                 <version>${revision}</version>
             </dependency>
+
             <dependency>
                 <groupId>com.sunrisejay</groupId>
                 <artifactId>lifestream-kv-api</artifactId>
@@ -308,6 +312,12 @@
                 <groupId>org.elasticsearch</groupId>
                 <artifactId>elasticsearch</artifactId>
                 <version>${elasticsearch.version}</version>
+            </dependency>
+            <!-- Rocket MQ 客户端 -->
+            <dependency>
+                <groupId>org.apache.rocketmq</groupId>
+                <artifactId>rocketmq-client</artifactId>
+                <version>${rocketmq-client.version}</version>
             </dependency>
         </dependencies>
 

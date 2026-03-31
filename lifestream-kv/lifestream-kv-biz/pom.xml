@@ -50,6 +50,15 @@
             <groupId>com.sunrisejay</groupId>
             <artifactId>lifestream-kv-api</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.sunrisejay</groupId>
+            <artifactId>lifestream-spring-boot-starter-biz-operationlog</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+        </dependency>
+
 
     </dependencies>
 </project>
