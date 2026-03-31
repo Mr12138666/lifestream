@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 /**
- * @author: 犬小哈
+ * @author: Sunrise_Jay
  * @date: 2025/1/2 20:52
  * @version: v1.0.0
  * @description: 热度值计算

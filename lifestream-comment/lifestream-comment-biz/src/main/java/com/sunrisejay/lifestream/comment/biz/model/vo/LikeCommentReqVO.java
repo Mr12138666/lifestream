@@ -7,7 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * @author: 犬小哈
+ * @author: Sunrise_Jay
  * @date: 2024/4/7 15:17
  * @version: v1.0.0
  * @description: 评论点赞

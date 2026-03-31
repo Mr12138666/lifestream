@@ -1,7 +1,7 @@
 package com.sunrisejay.lifestream.comment.biz.constant;
 
 /**
- * @author: 犬小哈
+ * @author: Sunrise_Jay
  * @date: 2024/5/21 15:04
  * @version: v1.0.0
  * @description: Redis 常量类

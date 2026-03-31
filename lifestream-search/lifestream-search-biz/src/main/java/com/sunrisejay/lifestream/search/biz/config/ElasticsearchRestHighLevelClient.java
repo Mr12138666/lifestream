@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * @author: 犬小哈
+ * @author: Sunrise_Jay
  * @date: 2024/12/3 15:56
  * @version: v1.0.0
  * @description: ElasticsearchRestClient 客户端

@@ -29,13 +29,13 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
- * @author: 犬小哈
+ * @author: Sunrise_Jay
  * @date: 2024/8/9 11:52
  * @version: v1.0.0
  * @description: 评论热度值计算
  **/
 @Component
-@RocketMQMessageListener(consumerGroup = "xiaohashu_group_" + MQConstants.TOPIC_COMMENT_HEAT_UPDATE, // Group 组
+@RocketMQMessageListener(consumerGroup = "lifestream_group_" + MQConstants.TOPIC_COMMENT_HEAT_UPDATE, // Group 组
         topic = MQConstants.TOPIC_COMMENT_HEAT_UPDATE // 主题 Topic
         )
 @Slf4j

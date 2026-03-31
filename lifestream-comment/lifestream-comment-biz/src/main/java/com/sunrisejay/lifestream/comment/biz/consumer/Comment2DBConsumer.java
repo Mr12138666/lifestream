@@ -41,7 +41,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 /**
- * @author: 犬小哈
+ * @author: Sunrise_Jay
  * @date: 2024/8/9 11:52
  * @version: v1.0.0
  * @description: 评论批量写库
@@ -71,7 +71,7 @@ public class Comment2DBConsumer {
     @Bean
     public DefaultMQPushConsumer mqPushConsumer() throws MQClientException {
         // Group 组
-        String group = "xiaohashu_group_" + MQConstants.TOPIC_PUBLISH_COMMENT;
+        String group = "lifestream_group_" + MQConstants.TOPIC_PUBLISH_COMMENT;
 
         // 创建一个新的 DefaultMQPushConsumer 实例，并指定消费者的消费组名
         consumer = new DefaultMQPushConsumer(group);

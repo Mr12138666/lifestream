@@ -1,7 +1,7 @@
 package com.sunrisejay.lifestream.constant;
 
 /**
- * @author: 犬小哈
+ * @author: Sunrise_Jay
  * @date: 2024/4/13 23:23
  * @version: v1.0.0
  * @description: TODO

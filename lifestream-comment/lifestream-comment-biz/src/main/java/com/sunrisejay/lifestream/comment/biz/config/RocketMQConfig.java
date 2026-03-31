@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
 /**
- * @author: 犬小哈
+ * @author: Sunrise_Jay
  * @url: www.quanxiaoha.com
  * @date: 2024/8/30 11:16
  * @description: RocketMQ 配置

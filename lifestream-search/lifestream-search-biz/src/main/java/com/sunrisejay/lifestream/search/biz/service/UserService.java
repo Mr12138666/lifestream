@@ -7,7 +7,7 @@ import com.sunrisejay.lifestream.search.biz.model.vo.SearchUserReqVO;
 import com.sunrisejay.lifestream.search.biz.model.vo.SearchUserRspVO;
 
 /**
- * @author: 犬小哈
+ * @author: Sunrise_Jay
  * @date: 2024/4/7 15:41
  * @version: v1.0.0
  * @description: 用户搜索业务

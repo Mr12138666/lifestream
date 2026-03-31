@@ -1,7 +1,7 @@
 package com.sunrisejay.lifestream.comment.biz.constant;
 
 /**
- * @author: 犬小哈
+ * @author: Sunrise_Jay
  * @date: 2024/8/10 13:21
  * @version: v1.0.0
  * @description: MQ 常量

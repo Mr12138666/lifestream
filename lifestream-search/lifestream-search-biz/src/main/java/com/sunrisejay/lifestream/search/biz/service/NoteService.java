@@ -7,7 +7,7 @@ import com.sunrisejay.lifestream.search.biz.model.vo.SearchNoteReqVO;
 import com.sunrisejay.lifestream.search.biz.model.vo.SearchNoteRspVO;
 
 /**
- * @author: 犬小哈
+ * @author: Sunrise_Jay
  * @date: 2024/4/7 15:41
  * @version: v1.0.0
  * @description: 笔记搜索业务

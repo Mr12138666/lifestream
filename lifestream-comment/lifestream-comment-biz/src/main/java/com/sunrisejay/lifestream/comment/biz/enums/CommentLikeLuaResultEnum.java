@@ -6,7 +6,7 @@ import lombok.Getter;
 import java.util.Objects;
 
 /**
- * @author: 犬小哈
+ * @author: Sunrise_Jay
  * @url: www.quanxiaoha.com
  * @date: 2023-08-15 10:33
  * @description: 评论点赞：执行 Lua 脚本返回结果

@@ -7,7 +7,7 @@ import org.springframework.retry.policy.SimpleRetryPolicy;
 import org.springframework.retry.support.RetryTemplate;
 
 /**
- * @author: 犬小哈
+ * @author: Sunrise_Jay
  * @url: www.quanxiaoha.com
  * @date: 2024/8/30 11:16
  * @description: Spring Retry 重试配置

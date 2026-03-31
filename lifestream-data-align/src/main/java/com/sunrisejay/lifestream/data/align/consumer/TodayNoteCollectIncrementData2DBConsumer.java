@@ -24,7 +24,7 @@ import java.util.Collections;
 import java.util.Objects;
 
 /**
- * @author: 犬小哈
+ * @author: Sunrise_Jay
  * @date: 2024/8/9 11:52
  * @version: v1.0.0
  * @description: 日增量数据落库：笔记收藏、取消收藏

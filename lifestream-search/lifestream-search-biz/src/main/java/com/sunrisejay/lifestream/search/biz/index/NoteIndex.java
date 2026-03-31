@@ -1,7 +1,7 @@
 package com.sunrisejay.lifestream.search.biz.index;
 
 /**
- * @author: 犬小哈
+ * @author: Sunrise_Jay
  * @date: 2024/12/3 21:37
  * @version: v1.0.0
  * @description: 笔记索引

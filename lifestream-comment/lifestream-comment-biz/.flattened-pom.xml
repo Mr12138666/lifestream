@@ -8,7 +8,7 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <groupId>com.sunrisejay</groupId>
-  <artifactId>xiaohashu-comment-biz</artifactId>
+  <artifactId>lifestream-comment-biz</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>${project.artifactId}</name>
   <description>评论服务业务层</description>

@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 import java.time.LocalDateTime;
 
 /**
- * @author: 犬小哈
+ * @author: Sunrise_Jay
  * @date: 2024/12/24 17:09
  * @version: v1.0.0
  * @description: 发送 MQ 重试工具类

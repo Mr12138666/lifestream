@@ -19,7 +19,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 /**
- * @author: 犬小哈
+ * @author: Sunrise_Jay
  * @date: 2024/4/6 15:51
  * @version: v1.0.0
  * @description: 定时分片广播任务：对当日发生变更的笔记点赞数进行对齐

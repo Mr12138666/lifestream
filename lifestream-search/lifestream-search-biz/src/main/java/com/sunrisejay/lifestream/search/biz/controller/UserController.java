@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 /**
- * @author: 犬小哈
+ * @author: Sunrise_Jay
  * @date: 2024/4/4 13:22
  * @version: v1.0.0
  * @description: 用户搜索

@@ -6,7 +6,7 @@ import com.sunrisejay.framework.common.response.Response;
 import com.sunrisejay.lifestream.comment.biz.model.vo.*;
 
 /**
- * @author: 犬小哈
+ * @author: Sunrise_Jay
  * @date: 2024/4/7 15:41
  * @version: v1.0.0
  * @description: 评论业务

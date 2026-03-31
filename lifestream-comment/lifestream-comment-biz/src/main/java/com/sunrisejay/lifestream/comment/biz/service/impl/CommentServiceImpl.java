@@ -58,7 +58,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 /**
- * @author: 犬小哈
+ * @author: Sunrise_Jay
  * @date: 2024/4/7 15:41
  * @version: v1.0.0
  * @description: 评论业务
@@ -880,7 +880,7 @@ public class CommentServiceImpl implements CommentService {
 
             Long parentId = childCommentDO.getParentId();
             Long replyCommentId = childCommentDO.getReplyCommentId();
-            // 若当前评论的 replyCommentId 不等于 parentId，则前端需要展示回复的哪个用户，如  “回复 犬小哈：”
+            // 若当前评论的 replyCommentId 不等于 parentId，则前端需要展示回复的哪个用户，如  “回复 Sunrise_Jay：”
             if (!Objects.equals(parentId, replyCommentId)) {
                 userIds.add(childCommentDO.getReplyUserId());
             }
